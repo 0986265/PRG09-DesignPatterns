@@ -1,6 +1,6 @@
-namespace StrategyBasic {
-export class Reverse {
-    public applySyle(text: string): string {
+
+export class Reverse implements Style {
+    applyStyle(text: string): string {
 
         let splitArray = text.split("")
         let reverseArray = splitArray.reverse()
@@ -8,5 +8,4 @@ export class Reverse {
         return reverseArray.join("")
 
     }
-}
 }

@@ -1,9 +1,7 @@
-namespace StrategyBasic {
-export class Upper {
-    public applySyle(text: string): string {
-        
+
+export class Upper implements Style{
+    public applyStyle(text: string): string {
         text = text.toUpperCase()
         return text
     }
-}
 }

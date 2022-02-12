@@ -1,10 +1,15 @@
-var StrategyBasic;
-(function (StrategyBasic) {
-    class Main {
-        constructor() {
-            let txt = new StrategyBasic.Txt("Hello World");
-        }
+import { Lower } from "./styles/lower.js";
+import { Reverse } from "./styles/reverse.js";
+import { Upper } from "./styles/upper.js";
+import { Txt } from "./txt.js";
+export class Main {
+    constructor() {
+        let txt1 = new Txt("Hello World");
+        let txt2 = new Txt("Jesse Stolk");
+        let txt3 = new Txt("Bob Pikaar");
+        txt1.setStyle(new Lower());
+        txt2.setStyle(new Upper());
+        txt3.setStyle(new Reverse());
     }
-    StrategyBasic.Main = Main;
-    window.addEventListener("load", () => new StrategyBasic.Main());
-})(StrategyBasic || (StrategyBasic = {}));
+}
+window.addEventListener("load", () => new Main());

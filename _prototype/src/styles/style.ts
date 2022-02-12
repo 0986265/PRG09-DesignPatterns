@@ -1,3 +1,3 @@
-interface Dab {
+interface Style {
     applyStyle(text : string) : string
 }

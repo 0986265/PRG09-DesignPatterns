@@ -1,8 +1,8 @@
-namespace StrategyBasic {
+
     export class Txt extends HTMLElement {
     
         private text : string = ""
-        private dab : Dab;
+        private style1 : Style;
     
         constructor(text : string) {
             super()
@@ -15,10 +15,10 @@ namespace StrategyBasic {
             this.showText()
         }
     
-        public setStyle(style : Dab) {
+        public setStyle(style : Style) {
     
-            this.dab = style
-            this.text = this.dab.applyStyle(this.text)
+            this.style1 = style
+            this.text = this.style1.applyStyle(this.text)
     
             this.showText()
         }
@@ -30,6 +30,6 @@ namespace StrategyBasic {
     
     window.customElements.define("txt-component", Txt as any)
 
-}
+
 
 
