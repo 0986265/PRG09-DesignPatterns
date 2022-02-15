@@ -20,6 +20,7 @@ export class Tank extends GameObject {
         this.speed = new Vector(0, 0);
         this.rotation = 0;
         this.turret = new Turret(this);
+        this.projectileType = new Bullet(this);
         window.addEventListener("keydown", (e) => this.handleKeyDown(e));
         window.addEventListener("keyup", (e) => this.handleKeyUp(e));
     }
@@ -79,8 +80,8 @@ export class Tank extends GameObject {
         }
     }
     fire() {
-        this.game.gameObjects.push(new Bullet(this));
-        console.log("fire");
+        this.game.gameObjects.push(this.projectileType);
+        console.log(this.projectileType);
     }
     onCollision(target) {
     }
@@ -93,6 +94,9 @@ export class Tank extends GameObject {
             this.position.x = -this.width;
         if (this.position.y > window.innerHeight)
             this.position.y = -this.height;
+    }
+    setProjectile(projectile) {
+        this.projectileType = projectile;
     }
     degToRad(degrees) {
         return degrees * Math.PI / 180;
