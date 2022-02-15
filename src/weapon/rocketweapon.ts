@@ -1,9 +1,9 @@
-import { Bullet } from "../projectiles/bullet.js"
 import { Projectile } from "../projectiles/projectile"
+import { Rocket } from "../projectiles/rocket.js"
 import { Tank } from "../tank"
 
-export class BulletWeapon {
+export class RocketWeapon {
     public shoot(tank : Tank): Projectile {
-        return new Bullet(tank)
+        return new Rocket(tank)
     }
 }

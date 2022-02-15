@@ -4,6 +4,7 @@ import { GameObject }       from "./gameobject.js";
 import { Turret }           from "./turret.js";
 import { Vector }           from "./vector.js";
 import { Projectile }       from "./projectiles/projectile.js";
+import { BulletWeapon } from "./weapon/bulletweapon.js";
 
 export class Tank extends GameObject{
     private readonly FRICTION       : number    = 0.3  
@@ -19,7 +20,7 @@ export class Tank extends GameObject{
     private turret          : Turret
     private game            : Game
 
-    private projectileType  : Projectile
+    //private projectileType  : Weapon
     private weapon          : Weapon
     
     protected speed         : Vector    = new Vector(0, 0)
@@ -38,9 +39,8 @@ export class Tank extends GameObject{
 
         this.rotation   = 0
         
-        
         this.turret = new Turret(this)
-        this.projectileType = new Bullet(this)
+        this.weapon = new BulletWeapon
 
         window.addEventListener("keydown",  (e : KeyboardEvent) => this.handleKeyDown(e))
         window.addEventListener("keyup",    (e : KeyboardEvent) => this.handleKeyUp(e))
@@ -102,9 +102,9 @@ export class Tank extends GameObject{
     }
 
     private fire() {
-       // this.game.gameObjects.push(this.weapon.shoot(this))
-        this.game.gameObjects.push(this.projectileType)
-        console.log(this.projectileType)
+        this.game.gameObjects.push(this.weapon.shoot(this))
+        //this.game.gameObjects.push(this.projectileType)
+        console.log(this.weapon)
     }
 
     onCollision(target: GameObject): void {
@@ -119,8 +119,8 @@ export class Tank extends GameObject{
         if(this.position.y > window.innerHeight)    this.position.y = -this.height
     }
 
-    setProjectile(projectile : Projectile) {
-        this.projectileType = projectile
+    setProjectile(projectile : Weapon) {
+        this.weapon = projectile
     }
 
     /**

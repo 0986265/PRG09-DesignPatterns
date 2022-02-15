@@ -1,5 +1,5 @@
-import { Rocket } from "../projectiles/rocket.js";
 import { Tank } from "../tank.js";
+import { RocketWeapon } from "../weapon/rocketweapon.js";
 import { Ammunition } from "./ammunition.js";
 export class RocketAmmo extends Ammunition {
     constructor(position) {
@@ -7,7 +7,7 @@ export class RocketAmmo extends Ammunition {
     }
     onCollision(target) {
         if (target instanceof Tank) {
-            target.setProjectile(new Rocket(target));
+            target.setProjectile(new RocketWeapon);
         }
     }
 }

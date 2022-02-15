@@ -1,5 +1,5 @@
 import { Bullet } from "../projectiles/bullet"
-import { Missile } from "../projectiles/missile"
+import { Missile } from "../projectiles/missile.js"
 import { Projectile } from "../projectiles/projectile"
 import { Tank } from "../tank"
 
