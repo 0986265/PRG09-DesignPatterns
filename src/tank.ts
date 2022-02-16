@@ -102,7 +102,7 @@ export class Tank extends GameObject{
     }
 
     private fire() {
-        this.game.gameObjects.push(this.weapon.shoot(this))
+        this.game.gameObjects.push(this.weapon.shoot(this, this.game))
         //this.game.gameObjects.push(this.projectileType)
         console.log(this.weapon)
     }

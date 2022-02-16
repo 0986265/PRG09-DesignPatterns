@@ -6,4 +6,9 @@ export class Rocket extends Projectile {
     constructor(tank : Tank) {
         super("rocket", tank)
     }
+
+    public update(): void {
+        super.moveStraight()
+        super.update()
+    }
 }

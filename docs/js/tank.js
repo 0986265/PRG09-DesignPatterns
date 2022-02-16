@@ -80,7 +80,7 @@ export class Tank extends GameObject {
         }
     }
     fire() {
-        this.game.gameObjects.push(this.weapon.shoot(this));
+        this.game.gameObjects.push(this.weapon.shoot(this, this.game));
         console.log(this.weapon);
     }
     onCollision(target) {

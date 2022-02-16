@@ -1,3 +1,4 @@
+import { Enemy } from "../enemy.js";
 import { GameObject }       from "../gameobject.js";
 import { Missile } from "../projectiles/missile.js";
 import { Tank } from "../tank.js";

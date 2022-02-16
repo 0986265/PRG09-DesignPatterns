@@ -29,9 +29,12 @@ export abstract class Projectile extends GameObject{
     }
 
     public update() {
-        this.position = this.Position.add(this.direction.scale(this.speed))
         super.update();
 
+    }
+
+    public moveStraight() {
+        this.position = this.Position.add(this.direction.scale(this.speed))
     }
 
     public onCollision(target: GameObject): void {
