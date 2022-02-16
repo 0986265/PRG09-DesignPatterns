@@ -20,6 +20,8 @@ export class Tank extends GameObject{
     private turret          : Turret
     private game            : Game
 
+    private canShoot        : Boolean = true
+
     //private projectileType  : Weapon
     private weapon          : Weapon
     
@@ -49,6 +51,7 @@ export class Tank extends GameObject{
     public update() {
         this.turret.update()
 
+     
 
         // handle rotation if active
         if(this.turnLeft)       this.rotation -= this.rotationSpeed
@@ -102,7 +105,20 @@ export class Tank extends GameObject{
     }
 
     private fire() {
-        this.game.gameObjects.push(this.weapon.shoot(this, this.game))
+        console.log("Can shoot is now: " + this.canShoot)
+        if(this.canShoot) {
+            this.canShoot = false
+            console.log("Can shoot is now: " + this.canShoot)
+            console.log(this.weapon.getFireRate())
+            this.game.gameObjects.push(this.weapon.shoot(this, this.game))
+            console.log("Spawn Bullet")
+            setTimeout(() => {
+                this.canShoot = true
+                console.log("Can shoot is now: " + this.canShoot)
+                
+            }, this.weapon.getFireRate());
+            
+        } 
         //this.game.gameObjects.push(this.projectileType)
         console.log(this.weapon)
     }

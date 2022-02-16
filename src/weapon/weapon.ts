@@ -7,5 +7,6 @@ import { Tank } from "../tank";
 declare global {
     interface Weapon {
         shoot(tank : Tank, game : Game): Projectile
+        getFireRate() : number
     }
 }
