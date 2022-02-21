@@ -26,5 +26,8 @@ export class Enemy extends GameObject {
             }
             this.div.remove();
         }
+        if (target instanceof Missile) {
+            target.div.remove();
+        }
     }
 }

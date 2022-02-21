@@ -2,7 +2,7 @@ import { Vector } from "./vector.js"
 
 export abstract class GameObject{
     // Fields 
-    protected div       : HTMLElement
+    public div       : HTMLElement
     protected position  : Vector = new Vector(0, 0)
     protected rotation  : number = 0
     
